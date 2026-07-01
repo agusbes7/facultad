@@ -1,0 +1,51 @@
+int binario(int x){ //lleva de  entero a binario
+	if(x==1){ return 1;}
+	else{
+		return (x%2) + binario(x/2)*10;}}
+//------------------------------------------------------------
+int binarios(int x){  //lleva de binario a entero
+	if(x==0){return 0;}
+	if(x==1){return 1;}
+	else{
+		return (x%10)+2*binarios(x/10);}}
+
+//------------------------------------------------------------
+void insertar_elemento(int A[],int& tl, int indice){
+for(int i=tl;i>indice;i--){
+A[i]=A[i-1];}
+A[indice+1]++;
+tl++;}
+inserta el ultimo elemento en tl ya que si tl era 5 el ultimo elemento del arreglo estaba en A[4], ahora esta en 5, asi hasta encontrar el indice una vez ahi inserta el elemento en el indice+1 el cual es una copia de A[indice] finalmente actualiza el tl
+ void borrar_elemento(int A[],int& tl, int indice){
+		for(int i=indice;i<tl;i++){
+		A[i]=A[i+1];}
+		tl--;}
+ al borrar el elemento arrancamos del indice o encontramos el elemento y sobrescribimos todos los A[i] con el valor de A[i+1] y finalmente decrementamos el tl
+ void borrar_rango(int A[],int& tl, int inf,int sup){ 
+//borra un rango de elementos incluidos los extremos
+	if(inf==sup){borrar_elemento(A,tl,inf);}
+	else{
+	for(int i=inf;i + (sup - inf + 1) <tl;i++){
+	A[i]=A[i+(sup-inf)+1];}
+tl-=(sup-inf)+1;}}        
+
+//-----------------------------------------------------
+strings comparar con == o strcmp o s1.compare(s2) pero retorna int asi que igualar a 0 para ver si son iguales
+c_str(): Convierte un objeto string a un array de caracteres para usar con funciones heredadas de C como strcmp.
+compare(): Es un método de la clase string que te permite comparar cadenas de forma más flexible, incluyendo la posibilidad de comparar rangos específicos de caracteres y sin importar el caso.
+//-----------------------------------------------------
+
+
+ Archivo es una colección de datos almacenados juntos bajo un nombre común 
+Operaciones de archivos abrir cerrar escribir y leer.
+
+Ficheros de escritura de lectura o de lectoescritura
+ Los objetos del tipo fichero son objetos lógicos variables de nuestro programa que representan un fichero físico
+ Ficheros de texto o binario 
+La información se guarda generalmente con la codificación 
+Ventajas compactibilidad en los archivos binarios debido a que se usa menos espacio para almacenar más números usando su código binario que como valores de carácter individuales
+ Forma de acceso secuencial o directo o aleatorio
+ Ifstream lectura desde archivo  F>>
+ Ofstream escritura en el archivo F<<
+---------------------------------------------------
+ La resolución de la función seek siempre es de un byte
